@@ -2,12 +2,12 @@
 Two primary virtual machines were deployed.
 
 ## Domain Controller (DC01)
-* OS: Windows Server 2022
-* RAM: 4 GB
-* CPU: 2 cores
-* Roles: \
-&nbsp;&nbsp;&nbsp;&nbsp;- Active Directory Domain Services \
-&nbsp;&nbsp;&nbsp;&nbsp;- DNS Server
+- OS: Windows Server 2022
+- RAM: 4 GB
+- CPU: 2 cores
+- Roles:
+  - Active Directory Domain Services
+  - DNS Server
 
 <p align="center">
   <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/01_Environment_Setup/Screenshots/vm_details/dc01_hw.png" width=30% />
