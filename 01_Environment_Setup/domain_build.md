@@ -20,18 +20,18 @@ Organizational Units:
 * Standard user accounts: John Doe, Alice Smith
 * Service account: svc_backup
 
-![users](Screentshots/domain_build/ad_users.png)
+![users](Screenshots/domain_build/ad_users.png)
 
 ## Groups:
 IT Support security group
 * Domain Admins (default)
 
-![groups](Screentshots/domain_build/ad_groups.png)
+![groups](Screenshots/domain_build/ad_groups.png)
 
 * Workstations:
 CLIENT01
 
-![computers](Screentshots/domain_build/ad_computers.png)
+![computers](Screenshots/domain_build/ad_computers.png)
 
 This structure enables realistic authentication and privilege escalation scenarios.
 
@@ -44,12 +44,12 @@ A Windows client machine was joined to the domain to generate:
 Successful domain join was verified through:
 * Domain login testing
 
-![jdoe on client01](Screentshots/domain_build/jdoe_login_client01)
+![jdoe on client01](Screenshots/domain_build/jdoe_login_client01.png)
 
 * DNS resolution validation
 
-![nslookup](Screentshots/domain_build/dns_validation.png)
+![nslookup](Screenshots/domain_build/dns_validation.png)
 
 * Group Policy application
 
-![gp_jdoe](Screentshots/domain_build/group_policy_client01.png)
+![gp_jdoe](Screenshots/domain_build/group_policy_cllient01.png)
