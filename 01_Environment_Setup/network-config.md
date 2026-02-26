@@ -9,7 +9,7 @@ Network components:
 - Static IP assignment for the domain controller
 
 <p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/01_Environment_Setup/Screenshots/network_config/vmware_subnet_ip_and_gateway.png" width=50%/>
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/01_Environment_Setup/Screenshots/network_config/vmware_subnet_ip_and_gateway.png" width=30%/>
 </p>
 
 # IP Configuration
@@ -57,4 +57,33 @@ The following tests were performed:
 
 These checks ensure stable domain communication.
 
+# Troubleshooting
+## Issue — Network Connectivity Failure Due to Stale Virtual Adapter Bindings
+### Problem
+Network connectivity intermittently failed after modifying virtual network adapters.
+
+Symptoms included:
+* Inconsistent connectivity between domain systems
+* IP configuration appearing correct but communication failing
+
+### Root Cause
+After removing and re-adding the NAT adapter in the hypervisor, Windows created new adapter instances while retaining previous IP bindings associated with hidden adapters.
+
+This resulted in an IP address assigned to a non-active adapter instance \
+This behavior is common in virtualized environments.
+
+### Resolution
+Removed stale adapter bindings and reassigned the static IP to the active adapter.
+
+
+### Validation
+* Stable communication between DC01 and CLIENT01
+* Successful DNS resolution
+* Domain authentication functioning normally
+
+
+# Lessons Learned
+* Virtual network adapter changes can leave stale bindings that break connectivity.
+* Always validate networking before proceeding to telemetry configuration.
+* Domain infrastructure issues propagate into SIEM and detection layers if not resolved early.
 
