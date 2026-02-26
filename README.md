@@ -2,9 +2,11 @@
 
 ## Technologies:
 - Active Directory
+- Windows Server
 - Sysmon
-- Splunk
-- Microsoft Sentinel
+- Splunk Inc.
+- Microsoft Corporation (Sentinel / Defender)
+- VMware Workstation
 
 ## Lab Goals:
 - Simulate enterprise Windows domain
@@ -13,7 +15,7 @@
 - Perform incident investigation
 
 ## Architecture:
-![Architecture](01_Environment_Setup/Diagrams/network_diagram.png)
+![Architecture](01_Environment_Setup/Diagrams/network_architecture.png)
 
 ## Key Skills Demonstrated:
 - Log ingestion
