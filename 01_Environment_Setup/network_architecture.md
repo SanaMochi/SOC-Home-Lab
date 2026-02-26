@@ -11,13 +11,12 @@ This lab simulates a small enterprise environment consisting of:
 
 The goal is to generate realistic Windows security telemetry and perform detection and investigation workflows.
 
----
 
 ## Architecture Diagram
 
-![Network Diagram](../Diagrams/network_architecture.png)
-
----
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/01_Environment_Setup/Diagrams/network_architecture.png" width 50% />
+</p>
 
 ## Infrastructure Components
 
@@ -32,8 +31,6 @@ The goal is to generate realistic Windows security telemetry and perform detecti
 | DC01 | Windows Server 2022 | Domain Controller / DNS | 192.168.10.10 |
 | CLIENT01 | Windows 11 Enterprise | Domain Endpoint | 192.168.10.20 |
 
----
-
 ## Domain Architecture
 
 - Forest: corp.local
@@ -44,24 +41,22 @@ The goal is to generate realistic Windows security telemetry and perform detecti
 
 CLIENT01 is joined to the domain for centralized authentication and policy enforcement.
 
----
-
 ## Logging Architecture
 
 ### Endpoint Telemetry Sources
 
 DC01 and CLIENT01 generate:
 
-- Windows Security Logs
+- Windows Events Logs:
+  - Security
+  - System
+  - Application
 - Sysmon Logs
-- PowerShell Logs
 
 These logs are forwarded to:
 
 - Splunk (on-prem SIEM)
 - Microsoft Sentinel (cloud SIEM/SOAR)
-
----
 
 ## Cloud Security Stack
 
@@ -72,25 +67,13 @@ Microsoft security tools used:
 
 Defender sends alerts and device telemetry into Sentinel for investigation.
 
----
-
 ## Network Flow
 
-1. Domain authentication traffic:
+1. Domain authentication traffic: \
    CLIENT01 → DC01
 
-2. Log ingestion:
+2. Log ingestion: \
    Endpoint → SIEM platforms
 
-3. Security telemetry:
+3. Security telemetry: \
    Endpoint → Defender → Sentinel
-
----
-
-## Security Use Cases Simulated
-
-- Brute-force authentication
-- PowerShell execution
-- Lateral movement
-- Malware simulation
-
