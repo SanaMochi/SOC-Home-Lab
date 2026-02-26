@@ -13,7 +13,7 @@ The domain controller also provides:
 The following objects were created to simulate a small enterprise environment:
 Organizational Units:
 
-![ous](Screenshots/domain_build/ou_structures.png)
+![ous](Screenshots/domain_build/ou_structure.png)
 
 ## Users:
 * Administrative account: Administrator
