@@ -71,6 +71,10 @@ This query highlights the most frequent authentication patterns.
 
 Logon Type 3 was the most frequently observed.
 
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/event4624.png" width=70% />
+</p>
+
 ## Baseline Observations
 
 ### Domain Controller Generates High Volume Network Logons
