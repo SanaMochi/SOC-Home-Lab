@@ -205,3 +205,22 @@ The authentication baseline supports detection for:
 - Credential spraying
 - Lateral movement via SMB or RDP
 - Privileged account misuse
+
+## Detection Rules Derived From Baseline
+
+Based on observed authentication patterns, the following detection logic was created:
+
+### Brute Force Detection Strategy
+
+Because failed logons (Event ID 4625) occur at very low volume in this environment, spikes in failure counts represent high-signal anomalies.
+
+Detection thresholds:
+
+- Multiple failed logons from a single account
+- Multiple failed logons from a single source host
+- Failed logons followed by successful authentication
+
+Implementation:
+
+See:
+03-Detection-Engineering/brute-force-detection.md
