@@ -195,3 +195,20 @@ This baseline directly supports the following detection rules:
 - Service creation detection
 
 Baselines should be periodically recalibrated to account for environmental changes, software updates, and evolving administrative workflows.
+
+## Detection Rules Derived From Baseline
+
+Process baseline analysis shows low-frequency PowerShell usage and minimal encoded command execution.
+
+Because encoded commands were not observed during baseline activity, they represent a strong detection signal.
+
+Detection focus:
+
+- PowerShell with encoded command flags
+- Abnormal parent-child execution chains
+- Command-line obfuscation patterns
+
+Implementation:
+
+See:
+03-Detection-Engineering/encoded-powershell-detection.md
