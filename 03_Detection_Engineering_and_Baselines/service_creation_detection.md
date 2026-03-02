@@ -20,6 +20,10 @@ Relevant Event:
 
 - Event ID 7045 – A service was installed in the system
 
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/event7045.png" width=70% />
+</p>
+
 This event is generated whenever a new Windows service is created.
 
 ## Detection Logic
@@ -97,8 +101,13 @@ T1569.002 – Service Execution
 
 Execution via Windows services.
 
-## Artifacts Collected
+## Detection Maturity
 
-Screenshots demonstrate:
-- Event 7045 detection results
-- Expanded event fields used during investigation
+| Field | Value |
+|-------|--------|
+| Level | Lab Validation |
+| Status | Tested via Simulated Service Creation |
+| Telemetry Source | Windows System Logs (Event ID 7045) |
+| Detection Type | Persistence & Lateral Movement Monitoring |
+| False Positive Risk | Moderate (software installs create services) |
+| Tuning Required | Yes – baseline approved service creators |
