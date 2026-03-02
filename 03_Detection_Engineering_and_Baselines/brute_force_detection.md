@@ -118,3 +118,14 @@ Because authentication activity is unavoidable in most attacks, this detection p
 
 Technique: \
 T1110 – Brute Force
+
+## Detection Maturity
+
+| Field | Value |
+|-------|--------|
+| Level | Lab Validation |
+| Status | Tested in Controlled Environment |
+| Telemetry Source | Windows Security Logs (Event ID 4625, 4624) |
+| Detection Type | Threshold-Based Behavioral Detection |
+| False Positive Risk | Moderate (password typos, service accounts) |
+| Tuning Required | Yes – account exclusions & lockout policy alignment |
