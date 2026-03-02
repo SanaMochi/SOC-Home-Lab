@@ -18,7 +18,17 @@ Windows Security Log (Domain Controller).
 Relevant Event IDs:
 
 - 4728 – Member added to security-enabled global group
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/add_to_group.png" width=80% />
+</p>
+
 - 4729 – Member removed from security-enabled global group
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/leave_group.png" width=80% />
+</p>
+  
 
 These events are generated only on Domain Controllers because group membership changes are processed by Active Directory.
 
@@ -32,6 +42,7 @@ index=wineventlog (EventCode=4728 OR EventCode=4729)
 | table _time host SubjectUserName Group_Name Member_Name
 | sort -_time
 ```
+
 This query prioritizes high-value administrative groups.
 
 ## Key Investigation Fields
@@ -114,16 +125,13 @@ T1098 – Account Manipulation
 
 This technique involves modifying account permissions to maintain access.
 
-## Artifacts Collected
+## Detection Maturity
 
-Screenshots demonstrate:
-- Event 4728 & 4729 detection results
-- Expanded event fields used during investigation
-
-<p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/add_to_group.png" width=90% />
-</p>
-
-<p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/leave_group.png" width=90% />
-</p>
+| Field | Value |
+|-------|--------|
+| Level | Lab Validation |
+| Status | Tested via Group Membership Modification Simulation |
+| Telemetry Source | Windows Security Logs (Event ID 4728, 4732) |
+| Detection Type | Identity & Privilege Monitoring |
+| False Positive Risk | Low (administrative changes are auditable events) |
+| Tuning Required | Minimal – admin change window correlation recommended |
