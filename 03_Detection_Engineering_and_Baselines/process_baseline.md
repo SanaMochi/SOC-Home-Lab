@@ -211,4 +211,4 @@ Detection focus:
 Implementation:
 
 See:
-03-Detection-Engineering/encoded-powershell-detection.md
+03-Detection-Engineering_and_Baselines/encoded-powershell-detection.md
