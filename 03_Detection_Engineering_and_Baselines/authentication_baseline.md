@@ -223,4 +223,4 @@ Detection thresholds:
 Implementation:
 
 See:
-03-Detection-Engineering/brute-force-detection.md
+03-Detection-Engineering_and_Baselines/brute-force-detection.md
