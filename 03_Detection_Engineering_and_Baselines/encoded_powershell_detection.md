@@ -110,3 +110,14 @@ Because obfuscation is rarely required for legitimate scripting, encoded command
 
 Technique: \
 T1059.001 – Command and Scripting Interpreter: PowerShell
+
+## Detection Maturity
+
+| Field | Value |
+|-------|--------|
+| Level | Lab Validation |
+| Status | Tested with Simulated Encoded Payload Execution |
+| Telemetry Source | Sysmon (Event ID 1 – Process Creation) |
+| Detection Type | Command-Line Behavioral Detection |
+| False Positive Risk | Low–Moderate (admin automation scripts possible) |
+| Tuning Required | Yes – known administrative scripts whitelisting |
