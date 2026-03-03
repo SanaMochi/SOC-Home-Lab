@@ -16,6 +16,10 @@ Credential dumping often leads directly to lateral movement and domain compromis
 
 Sysmon Event ID 10 – Process Access
 
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/event10.png" width=90% />
+</p>
+
 Sysmon Event ID 10 logs when a process attempts to access another process.
 
 Critical target:\
