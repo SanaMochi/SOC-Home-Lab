@@ -19,7 +19,16 @@ Windows Security Log
 Relevant Events:
 
 - Event ID 4625 – Failed logon
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/4625.png" width=50% />
+</p>
+  
 - Event ID 4624 – Successful logon (used for correlation)
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/4624.png" width=50% />
+</p>
 
 Collected from:
 
