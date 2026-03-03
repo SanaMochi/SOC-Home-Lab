@@ -53,7 +53,7 @@ index=wineventlog (EventCode=4624 OR EventCode=4625)
 ```
 
 <p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/authentication_baseline.png" width=100% />
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/authentication_baseline.png" width=100% />
 </p>
 
 This query highlights the most frequent authentication patterns.
@@ -70,10 +70,6 @@ This query highlights the most frequent authentication patterns.
 | 11 | CachedInteractive | Offline domain login |
 
 Logon Type 3 was the most frequently observed.
-
-<p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/event4624.png" width=70% />
-</p>
 
 ## Baseline Observations
 
