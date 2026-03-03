@@ -17,6 +17,10 @@ Encoded PowerShell is a high-signal behavioral indicator.
 
 Sysmon Event ID 1 – Process Creation
 
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/normal_event1.png" width=90% />
+</p>
+
 Sysmon provides command-line visibility not available in default Windows logging.
 
 Primary fields used:
