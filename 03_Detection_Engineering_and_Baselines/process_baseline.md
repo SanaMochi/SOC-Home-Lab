@@ -38,7 +38,7 @@ index=sysmon EventCode=1
 This query identifies the most common execution chains in the environment.
 
 <p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/process_baseline.png" />
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/process_baseline.png" />
 </p>
 
 ```SPL
@@ -52,7 +52,7 @@ index="sysmon" EventCode=1 host="CLIENT01"
 This query filters for actual administrative user behavior.
 
 <p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Baseline/Screenshots/actual_user_behavior.png" />
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/03_Detection_Engineering_and_Baselines/Screenshots/actual_user_behavior.png" />
 </p>
 
 ## Observed Parent–Child Process Relationships
