@@ -89,7 +89,8 @@ Encoded PowerShell may appear in:
 False positives typically include:
 - Known script paths
 - Consistent administrative hosts
-- Tuning Strategy
+
+## Tuning Strategy
 
 Improve detection quality by:
 - Filtering known automation scripts
