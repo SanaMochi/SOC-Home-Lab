@@ -131,7 +131,7 @@ This technique involves modifying account permissions to maintain access.
 |-------|--------|
 | Level | Lab Validation |
 | Status | Tested via Group Membership Modification Simulation |
-| Telemetry Source | Windows Security Logs (Event ID 4728, 4732) |
+| Telemetry Source | Windows Security Logs (Event ID 4728, 4729) |
 | Detection Type | Identity & Privilege Monitoring |
 | False Positive Risk | Low (administrative changes are auditable events) |
 | Tuning Required | Minimal – admin change window correlation recommended |
