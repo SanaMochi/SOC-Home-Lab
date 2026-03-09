@@ -16,7 +16,7 @@
 
 ## Architecture:
 <p align="center">
-  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/01_Environment_Setup/Diagrams/network_architecture.png" width 50% />
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/01_Environment_Setup/Diagrams/network_architecture.png" width=50% />
 </p>
 
 ## Key Skills Demonstrated:
