@@ -45,6 +45,17 @@ index=wineventlog (EventCode=4728 OR EventCode=4729)
 
 This query prioritizes high-value administrative groups.
 
+## Sentinel Detection Query (KQL)
+```KQL
+SecurityEvent
+| where EventID in (4728, 4729)
+| where TargetUserName has_any ("Admin", "Domain Admins", "Enterprise Admins")
+| project TimeGenerated, SubjectUserName, TargetUserName, GroupName = TargetDomainName, Activity
+| sort by TimeGenerated desc
+```
+
+Cross-reference with `IdentityInfo` table in Sentinel for account risk context.
+
 ## Key Investigation Fields
 
 | Field | Purpose |
