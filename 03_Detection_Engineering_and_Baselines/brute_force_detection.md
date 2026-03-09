@@ -67,8 +67,8 @@ This query identifies repeated authentication failures across short time interva
 ```SPL
 index=wineventlog (EventCode=4624 OR EventCode=4625)
 | stats 
-count(eval(EventCode=4625)) as failed_attempts
-count(eval(EventCode=4624)) as successful_logins
+count(eval(EventCode="4625")) as failed_attempts
+count(eval(EventCode="4624")) as successful_logins
 by Account_Name Source_Network_Address
 | where failed_attempts > 5 AND successful_logins > 0
 ```
