@@ -62,6 +62,28 @@ index=wineventlog EventCode=4625
 
 This query identifies repeated authentication failures across short time intervals.
 
+## Sentinel Detection Query (KQL)
+```KQL
+SecurityEvent
+| where EventID == 4625
+| summarize FailedAttempts = count() by AccountName, IpAddress, bin(TimeGenerated, 5m)
+| where FailedAttempts >= 10
+| sort by FailedAttempts desc
+```
+
+**Correlation — Success After Failures:**
+```KQL
+let failures = SecurityEvent
+| where EventID == 4625
+| summarize FailedAttempts = count() by AccountName, IpAddress;
+let successes = SecurityEvent
+| where EventID == 4624
+| summarize SuccessCount = count() by AccountName, IpAddress;
+failures
+| join kind=inner successes on AccountName, IpAddress
+| where FailedAttempts > 5 and SuccessCount > 0
+```
+
 ## Correlation Enhancement (Success After Failures)
 
 ```SPL
