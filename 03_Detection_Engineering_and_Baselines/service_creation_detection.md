@@ -38,6 +38,30 @@ index=wineventlog EventCode=7045
 | sort -_time
 ```
 
+## Sentinel Detection Query (KQL)
+```KQL
+SecurityEvent
+| where EventID == 7045
+| project TimeGenerated, Computer, ServiceName, ServiceFileName = CommandLine, ServiceAccount = SubjectUserName
+| sort by TimeGenerated desc
+```
+
+**Lateral movement correlation — service creation paired with network logon:**
+```KQL
+let services = SecurityEvent
+| where EventID == 7045
+| project TimeGenerated, Computer, ServiceName;
+let networkLogons = SecurityEvent
+| where EventID == 4624 and LogonType == 3
+| project LogonTime = TimeGenerated, Computer, AccountName;
+services
+| join kind=inner networkLogons on Computer
+| where abs(datetime_diff('minute', TimeGenerated, LogonTime)) <= 5
+| project TimeGenerated, Computer, ServiceName, AccountName
+```
+
+This correlation directly mirrors the PsExec detection pattern from the lab plan — a Type 3 logon followed closely by service creation on the same host is a strong lateral movement indicator.
+
 ## Key Investigation Fields
 
 | Field        | Investigation Value            |
