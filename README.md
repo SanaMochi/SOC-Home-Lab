@@ -20,6 +20,9 @@
 </p>
 
 ## Key Skills Demonstrated:
-- Log ingestion
-- Detection engineering
-- Incident response
+- Active Directory deployment and domain management
+- Multi-source telemetry pipeline (Sysmon + Splunk + Defender + Sentinel)
+- Detection engineering with SPL and KQL
+- Dual-SIEM architecture and cross-platform correlation
+- Incident investigation and threat hunting
+- MITRE ATT&CK mapping and detection documentation
