@@ -28,8 +28,8 @@ The goal is to generate realistic Windows security telemetry and perform detecti
 
 | Hostname | OS | Role | IP |
 |----------|----|------|----|
-| DC01 | Windows Server 2022 | Domain Controller / DNS | 192.168.10.10 |
-| CLIENT01 | Windows 11 Enterprise | Domain Endpoint | 192.168.10.20 |
+| DC01 | Windows Server 2022 | Domain Controller / DNS | 192.168.113.10 |
+| CLIENT01 | Windows 11 Enterprise | Domain Endpoint | 192.168.113.20 |
 
 ## Domain Architecture
 
