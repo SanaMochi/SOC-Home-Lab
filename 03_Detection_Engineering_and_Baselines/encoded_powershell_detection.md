@@ -79,6 +79,17 @@ Example:
 - explorer.exe → powershell.exe → often benign
 - winword.exe → powershell.exe → suspicious
 
+## Sentinel Detection Query (KQL)
+```KQL
+DeviceProcessEvents
+| where FileName =~ "powershell.exe"
+| where ProcessCommandLine has_any ("-enc", "-encodedcommand", "-nop", "-w hidden", "bypass")
+| project TimeGenerated, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName
+| sort by TimeGenerated desc
+```
+
+`InitiatingProcessFileName` provides parent process context equivalent to `ParentImage` in Sysmon.
+
 ## False Positive Considerations
 
 Encoded PowerShell may appear in:
