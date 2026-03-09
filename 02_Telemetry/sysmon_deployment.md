@@ -122,7 +122,7 @@ Sysmon channel not configured in forwarder inputs.
 **Resolution**
 
 inputs.conf:
-```SPL
+```conf
 [WinEventLog://Microsoft-Windows-Sysmon/Operational]
 index=sysmon
 ```
