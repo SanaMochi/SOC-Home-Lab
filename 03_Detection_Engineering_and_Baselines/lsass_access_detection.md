@@ -58,6 +58,18 @@ index=sysmon EventCode=10 TargetImage="*lsass.exe"
 
 Microsoft Defender commonly accesses LSASS legitimately.
 
+## Sentinel Detection Query (KQL)
+```KQL
+DeviceEvents
+| where ActionType == "OpenProcessApiCall"
+| where FileName =~ "lsass.exe"
+| where not(InitiatingProcessFileName has_any ("MsMpEng.exe", "SenseIR.exe"))
+| project TimeGenerated, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine, AccountName
+| sort by TimeGenerated desc
+```
+
+`InitiatingProcessFileName` is the equivalent of `SourceImage` in Sysmon Event ID 10.
+
 ## Key Investigation Fields
 
 | Field         | Purpose                      |
