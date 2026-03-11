@@ -28,6 +28,8 @@ Initial Access → Execution → (Encoded PS delivers next stage) → Persistenc
 
 MITRE ATT&CK: T1059.001 — Command and Scripting Interpreter: PowerShell  
 MITRE ATT&CK: T1027 — Obfuscated Files or Information
+MITRE ATT&CK: T1057 — Process Discovery  
+MITRE ATT&CK: T1106 — Native API
 
 ## Simulation Details
 
