@@ -27,7 +27,7 @@ This technique typically appears after initial access has been established:
 Initial Access → Execution → (Encoded PS delivers next stage) → Persistence / C2
 
 MITRE ATT&CK: T1059.001 — Command and Scripting Interpreter: PowerShell  
-MITRE ATT&CK: T1027 — Obfuscated Files or Information
+MITRE ATT&CK: T1027 — Obfuscated Files or Information  
 MITRE ATT&CK: T1057 — Process Discovery  
 MITRE ATT&CK: T1106 — Native API
 
