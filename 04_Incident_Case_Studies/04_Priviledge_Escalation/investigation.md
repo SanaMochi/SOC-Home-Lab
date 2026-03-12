@@ -13,24 +13,31 @@ removal.
 Before the attack was executed, the monitoring window showed zero group membership
 change events in the last 24 hours, confirming a clean baseline.
 
-![Splunk baseline showing 0 events for EventCode 4728/4729 in last 24 hours](../screenshots/baseline.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/baseline.png" 
+     width=100% />
+</p>
 
 The all-time view shows 17 historical events — all from lab setup activities in
 February 2026 when users and groups were created. None of these represent unauthorized
 changes.
 
-![Splunk all-time view showing 17 historical group membership events from lab setup](../screenshots/all_time.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/all_time.png" 
+     width=100% />
+</p>
 
 The Domain Admins group contained exactly two legitimate members before the attack:
 
-![ADUC Domain Admins Properties showing admin01 and Administrator as the only members](../screenshots/group_baseline.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/group_baseline.png" 
+     width=50% />
+</p>
 
 ## Step 2 — Alert Fires on Event ID 4728
 
 The detection query surfaced a new Event ID 4728 in the monitoring window — a member
 was added to Domain Admins.
-
-![Splunk query showing 4728 event: Administrator added John Doe to Domain Admins](../screenshots/q1_4728.png)
 
 Key fields from the detection:
 
@@ -56,7 +63,10 @@ Verdict: Unauthorized privilege escalation — escalate immediately.
 Active Directory Users and Computers confirmed jdoe (John Doe) appeared in the Domain
 Admins members list immediately after the PowerShell command ran.
 
-![ADUC Domain Admins Properties showing John Doe added as third member](../screenshots/jdoe_added.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/jdoe_added.png" 
+     width=50% />
+</p>
 
 John Doe's OU path (`corp.local/Corps-Users`) is visible — confirming this is a standard
 user account with no legitimate reason to be in Domain Admins.
@@ -65,7 +75,10 @@ user account with no legitimate reason to be in Domain Admins.
 
 The raw Event ID 4728 from Splunk provides full forensic detail.
 
-![Full expanded raw 4728 event showing Subject, Member, and Group sections](../screenshots/4728_full.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/4728_full.png" 
+     width=80% />
+</p>
 
 Key raw event fields:
 
@@ -92,7 +105,10 @@ to determine when the Administrator session began and what else it did.
 Shortly after the addition, the attacker removed jdoe from Domain Admins — a common
 cleanup behavior to reduce the window of detection. This generated Event ID 4729.
 
-![Splunk query showing both 4728 and 4729 events — add and remove pair for John Doe](../screenshots/q1_4729.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/q1_4729.png" 
+     width=100% />
+</p>
 
 | EventCode | Time | Action |
 |-----------|------|--------|
@@ -106,14 +122,20 @@ investigated. Key pivot: search for 4624 logon events for jdoe between 08:02 and
 
 The removal of jdoe was confirmed in ADUC:
 
-![ADUC Domain Admins Properties showing John Doe removed — back to admin01 and Administrator](../screenshots/jdoe_removed.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/jdoe_removed.png" 
+     width=50% />
+</p>
 
 ## Step 6 — Execution Evidence
 
 The attacker's PowerShell session on DC01 shows both commands executed cleanly
 with no errors.
 
-![PowerShell terminal showing Add-ADGroupMember and Remove-ADGroupMember commands](../screenshots/cli.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/cli.png" 
+     width=100% />
+</p>
 
 The absence of errors confirms both commands completed successfully. The
 `-Confirm:$false` flag on the remove command suppressed the confirmation prompt —
