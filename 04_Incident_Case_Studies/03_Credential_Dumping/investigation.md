@@ -30,7 +30,9 @@ from running, not just flagged. This is the best possible outcome for this threa
 The CLIENT01 device timeline was reviewed to establish the full sequence of events
 around the alert time (8:38 PM, March 11, 2026).
 
-![Defender CLIENT01 timeline showing detection and prevention events](../screenshots/timeline.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/timeline.png" width=100% />
+</p>
 
 Key events observed in chronological order:
 
@@ -51,7 +53,9 @@ handles correctly by matching both representations.
 
 The expanded prevention event confirmed the exact command the attacker attempted to run.
 
-![Expanded Defender prevention event showing threat name, command line, and remediation details](../screenshots/proc_tree.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/proc_tree.png" width=100% />
+</p>
 
 | Field | Value |
 |-------|-------|
@@ -80,7 +84,9 @@ index=sysmon EventCode=10 SourceImage="*procdump*" TargetImage="*lsass.exe"
 | table _time host SourceImage TargetImage GrantedAccess
 ```
 
-![Splunk returning zero results for procdump LSASS access](../screenshots/splunk.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/splunk.png" width=100% />
+</p>
 
 **Result: 0 events**
 
@@ -110,7 +116,9 @@ accesses LSASS for protection purposes and would otherwise generate significant 
 
 The terminal output from the attacker's session confirms the attempt was made and blocked.
 
-![PowerShell terminal showing ProcDump download, extraction, and blocked execution](../screenshots/cli.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/cli.png" width=90% />
+</p>
 
 The sequence visible in the terminal:
 1. ProcDump downloaded via `Invoke-WebRequest` from Sysinternals
