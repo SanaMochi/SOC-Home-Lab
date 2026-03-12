@@ -42,8 +42,6 @@ index=sysmon EventCode=10 TargetImage="*lsass.exe"
 In an unprotected environment a successful ProcDump against LSASS would show
 GrantedAccess 0x1FFFFF — full memory access rights.
 
----
-
 ## Query 2 — Targeted ProcDump / Known Tool Detection
 
 ```spl
@@ -53,7 +51,9 @@ index=sysmon EventCode=10 TargetImage="*lsass.exe" SourceImage="*procdump*"
 
 ### Result from This Simulation
 
-![Splunk returning zero results — Defender prevented handle from being opened](../screenshots/splunk.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/splunk.png" width=100% />
+</p>
 
 **0 events returned.** This is the correct finding for a prevented attack. Defender
 terminated ProcDump before it reached the OpenProcess() system call, so Sysmon never
