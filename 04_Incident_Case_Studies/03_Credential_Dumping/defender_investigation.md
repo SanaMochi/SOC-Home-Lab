@@ -24,15 +24,17 @@ and document a prevention event is as important as investigating a successful at
 **Detection technology:** Client, Heuristic  
 **MITRE ATT&CK:** T1003.001 — LSASS Memory  
 
-![Defender alert process tree and alert details panel](../screenshots/alert.png)
-
----
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/alert.png" width=100% />
+</p>
 
 ## Device Timeline Analysis
 
 The CLIENT01 timeline was filtered to the attack window (8:38 PM, March 11, 2026).
 
-![Full Defender CLIENT01 timeline showing detection and prevention sequence](../screenshots/timeline.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/timeline.png" width=100% />
+</p>
 
 ### Key Timeline Events
 
@@ -58,7 +60,9 @@ representations, demonstrating robust signature coverage.
 
 The expanded prevention event shows the complete remediation record.
 
-![Expanded Defender prevention events showing threat name, command line, and remediation](../screenshots/proc_tree.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/proc_tree.png" width=100% />
+</p>
 
 ### Remediation Details
 
@@ -80,7 +84,9 @@ NTLM hashes and Kerberos tickets for every account that authenticated on CLIENT0
 
 The attacker's PowerShell session confirms the attempt and the prevention outcome.
 
-![PowerShell terminal showing ProcDump download, extraction, and access denied error](../screenshots/cli.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/03_Credential_Dumping/Screenshots/cli.png" width=90% />
+</p>
 
 The terminal shows:
 1. ProcDump downloaded from live.sysinternals.com via `Invoke-WebRequest`
