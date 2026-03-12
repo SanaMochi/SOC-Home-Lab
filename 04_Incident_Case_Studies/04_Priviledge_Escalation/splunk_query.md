@@ -29,19 +29,27 @@ index=wineventlog (EventCode=4728 OR EventCode=4729)
 
 ### Baseline Result (24 hours before attack)
 
-![Splunk showing 0 events in 24-hour window before attack](../screenshots/baseline.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/baseline.png" width=100% />
+</p>
 
 Zero events in the active monitoring window — any new event is immediately anomalous.
 
 ### Detection Result (after attack)
 
-![Splunk showing 4728 event: Administrator added John Doe to Domain Admins](../screenshots/q1_4728.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/q1_4728.png" 
+      width=100% />
+</p>
 
 One event returned — jdoe added to Domain Admins by Administrator at 08:02:03.
 
 ### Full Add + Remove Pair
 
-![Splunk showing both 4728 and 4729 for John Doe within 7 minutes](../screenshots/q1_4729.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/q1_4729.png" 
+      width=100% />
+</p>
 
 Both events visible together — the add/remove pair within 7 minutes is itself a
 high-confidence indicator of malicious activity. Legitimate group changes rarely
@@ -85,7 +93,10 @@ a high-confidence malicious indicator — this pattern almost never occurs legit
 
 The full Event ID 4728 provides three sections of forensic value:
 
-![Full expanded raw 4728 event](../screenshots/4728_full.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/4728_full.png" 
+      width=80% />
+</p>
 
 ### Subject Section — Who Did It
 ```
