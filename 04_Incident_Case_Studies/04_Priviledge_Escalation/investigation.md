@@ -39,6 +39,11 @@ The Domain Admins group contained exactly two legitimate members before the atta
 The detection query surfaced a new Event ID 4728 in the monitoring window — a member
 was added to Domain Admins.
 
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/q1_4728.png" 
+      width=100% />
+</p>
+
 Key fields from the detection:
 
 | Field | Value | Significance |
