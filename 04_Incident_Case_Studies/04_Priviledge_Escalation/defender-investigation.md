@@ -18,7 +18,9 @@ ADUC (visual confirmation). Each source provides different context.
 **Service Source:** Microsoft Sentinel  
 **Event Time:** Mar 12, 2026 8:02:03 AM  
 
-![DC01 Defender timeline showing Sentinel alert for Domain Admins group modification](../screenshots/dc01.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/dc01.png" width=100% />
+</p>
 
 The alert appeared on the DC01 device timeline at exactly the same timestamp as the
 Windows Security Event ID 4728 — confirming Sentinel is ingesting DC01 security logs
@@ -28,7 +30,9 @@ and running analytics rules against them in near real time.
 
 The expanded Sentinel event provides a human-readable description of the exact change.
 
-![Expanded Sentinel event showing full description of the group membership change](../screenshots/event.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/event.png" width=50% />
+</p>
 
 | Field | Value |
 |-------|-------|
@@ -56,19 +60,28 @@ Active Directory Users and Computers on DC01 provided visual confirmation of bot
 the attack state and the restored baseline.
 
 ### Before Attack
-![Domain Admins showing only admin01 and Administrator](../screenshots/group_baseline.png)
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/group_baseline.png" width=50% />
+</p>
 
 Two members — admin01 and Administrator. This is the expected legitimate state.
 
 ### During Attack
-![Domain Admins showing John Doe added as third member highlighted in blue](../screenshots/jdoe_added.png)
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/jdoe_added.png" width=50% />
+</p>
 
 John Doe (corp.local/Corps-Users) visible as the third member. The blue highlight
 indicates the newly added account. The OU path Corps-Users confirms this is a
 standard user account — not an administrative account.
 
 ### After Cleanup
-![Domain Admins restored to admin01 and Administrator only](../screenshots/jdoe_removed.png)
+
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/04_Priviledge_Escalation/Screenshots/jdoe_removed.png" width=50% />
+</p>
 
 Restored to baseline. The attacker's cleanup removed the visual indicator but the
 Windows Security log retained both the 4728 and 4729 events — cleanup does not
