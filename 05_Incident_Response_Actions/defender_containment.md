@@ -28,18 +28,22 @@ preserving the ability to perform remote response actions from the portal.
 
 1. Defender portal → Devices → CLIENT01
 2. Top-right "..." menu → **Isolate device**
-3. For  Full Isolation do not check "Allow Outlook, Teams and Skype for Business communication while 
-    device is isolated" (block all network traffic except Defender agent communication)
+3. For  Full Isolation do not check "_Allow Outlook, Teams and Skype for Business communication while 
+    device is isolated_" (block all network traffic except Defender agent communication)
 4. Added comment: *"Simulated IR response — CLIENT01 used as attack origin across 5 case studies"*
 5. Clicked Confirm
 
-![Isolation confirmation dialog for client01.corp.local with IR comment](screenshots/isolate_window.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/isolate_window.png" width=70% />
+</p>
 
 ### Isolation Confirmed
 
 The isolation was pending until CLIENT01 was reconnected to the network. Then CLIENT01 device page immediately updated to reflect the isolated state.
 
-![CLIENT01 device page showing Status: Isolated with last action details and analyst comment](screenshots/client.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/client.png" width=100% />
+</p>
 
 Key details from the device page post-isolation:
 
@@ -55,7 +59,9 @@ Key details from the device page post-isolation:
 
 The Action Center logged the isolation immediately:
 
-![Action Center History showing Isolate device action completed for client01.corp.local](screenshots/action_home.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/action_home.png" width=100% />
+</p>
 
 ### What Isolation Does Technically
 
@@ -81,11 +87,15 @@ This preserves volatile evidence that would be lost after remediation or reboot.
 2. Added comment: *"IR Investigation"*
 3. Clicked Confirm
 
-![Collect investigation package confirmation dialog for client01.corp.local](screenshots/investigation_window.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/investigation_window.png" width=70% />
+</p>
 
 The collection completed successfully:
 
-![Investigation package action detail showing Completed status and device details](screenshots/investigation_action.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/investigation_action.png" width=50% />
+</p>
 
 ### What the Investigation Package Contains
 
@@ -117,18 +127,24 @@ to allow remediation and monitoring to resume.
 2. Added comment: *"Release client01.corp.local from isolation"*
 3. Clicked Confirm
 
-![Release from isolation confirmation dialog for client01.corp.local](screenshots/release_window.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/release_window.png" width=50% />
+</p>
 
 The release completed and was logged in the Action Center:
 
-![Action Center showing Stop isolation action completed after Isolate device](screenshots/action_home2.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/action_home2.png" width=100% />
+</p>
 
 ## Full Action Center Audit Trail
 
 The complete Action Center history shows all three containment actions performed in sequence,
 providing a full documented audit trail of analyst activity:
 
-![Action Center History showing all 3 actions: Isolate device, Stop isolation, Collect investigation package](screenshots/action_home3.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/defender_containment/action_home3.png" width=100% />
+</p>
 
 | Time | Action | Asset | Status |
 |------|--------|-------|--------|
