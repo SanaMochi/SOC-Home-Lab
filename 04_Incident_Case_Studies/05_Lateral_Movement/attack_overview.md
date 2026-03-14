@@ -64,7 +64,7 @@ creation (EventCode 7045) at 21:16:04 with SimulatedPsExec and a cmd.exe binary 
 Microsoft Defender for Endpoint generated no meaningful alert. The only event on DC01's
 timeline was an AntivirusReport on services.exe at 21:16:05 — routine background AV scanning
 with no connection to the attack. Defender saw no malicious binary, no suspicious child
-process, and no behavioural pattern to alert on because the attack used only signed,
+process, and no behavioral pattern to alert on because the attack used only signed,
 legitimate Windows components throughout.
 
 | Control Layer | Outcome |
@@ -74,7 +74,7 @@ legitimate Windows components throughout.
 | Splunk correlation query | Both events visible in chronological attack chain |
 | Microsoft Defender for Endpoint | No detection — background AV noise only |
 
-## Service Start Failure — Expected Behaviour
+## Service Start Failure — Expected Behavior
 
 The `sc.exe \\DC01 start SimulatedPsExec` command returned error 1053:
 *"The service did not respond to the start or control request in a timely fashion."*
