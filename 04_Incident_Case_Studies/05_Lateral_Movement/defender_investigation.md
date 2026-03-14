@@ -6,7 +6,7 @@ This attack generated **no meaningful Defender detection**. The DC01 device time
 contained a single Defender event during the attack window — an AntivirusReport on
 services.exe at 21:16:05 — which on closer inspection is unrelated background AV scanning
 noise with no connection to the lateral movement activity. No alert was generated, no
-process was blocked, and no behavioural detection fired.
+process was blocked, and no behavioral detection fired.
 
 This is a realistic and important outcome. The PsExec pattern works entirely within
 legitimate Windows functionality: net use maps a share, sc.exe creates a service, and
@@ -21,7 +21,9 @@ that are architecturally indistinguishable from legitimate administrative activi
 The DC01 device timeline was reviewed for the full attack window (9:14 PM – 9:17 PM,
 March 12, 2026).
 
-![DC01 Defender device timeline showing two events — AntivirusReport and Sentinel Domain Admins alert](../screenshots/defender.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/05_Lateral_Movement/Screenshots/defender.png" width=100% />
+</p>
 
 | Time | Event | Action Type | Source |
 |------|-------|-------------|--------|
@@ -38,7 +40,7 @@ creation and was investigated for a possible connection.
 | Field | Value | Significance |
 |-------|-------|-------------|
 | Event | Unknown process file observed on host | Generic AV scan notification |
-| Action type | AntivirusReport | Background scan — not a behavioural detection |
+| Action type | AntivirusReport | Background scan — not a behavioral detection |
 | Entity | services.exe | The legitimate Windows Service Control Manager |
 | Path | C:\Windows\System32 | Canonical system binary — not attacker-controlled |
 | Child process | None captured | No execution event observed |
@@ -72,7 +74,7 @@ The PsExec pattern evades EDR behavioral detection for several structural reason
 | No shellcode or injection | Execution is a plain cmd.exe command, not a memory-based technique |
 | Legitimate parent process | services.exe is a trusted Windows process — its child process activity is expected |
 | No network C2 | The attack completed within the domain — no outbound beacon to detect |
-| Admin-level access used legitimately | Domain admin using ADMIN$ is architecturally normal behaviour |
+| Admin-level access used legitimately | Domain admin using ADMIN$ is architecturally normal behavior |
 | No anomalous access rights | No process opened handles to protected memory or sensitive APIs |
 
 This is why the PsExec pattern remains prevalent in real-world intrusions years after its
@@ -93,7 +95,7 @@ In a real attack with a malicious payload, Defender would be more likely to dete
 | Credential access from SYSTEM service context | T1003 heuristic |
 
 In this simulation the binary path ran `cmd.exe /c echo lateral_movement_test` — a
-completely benign command. Defender had no behavioural basis for an alert.
+completely benign command. Defender had no behavioral basis for an alert.
 
 
 ## The 8:02 AM Domain Admins Event — Separate Investigation Thread
