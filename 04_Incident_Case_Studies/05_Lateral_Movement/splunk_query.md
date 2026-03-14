@@ -20,7 +20,9 @@ index=wineventlog host="DC01" EventCode=7045
 | sort -_time
 ```
 
-![Splunk all-time 7045 query showing SimulatedPsExec at top of results](../screenshots/q1.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/05_Lateral_Movement/Screenshots/q1.png" width=100% />
+</p>
 
 ### What This Shows
 
@@ -53,7 +55,9 @@ index=wineventlog host="DC01" ((EventCode=4624 AND Logon_Account_Name=Administra
 | sort -_time
 ```
 
-![Splunk query showing 6 events — Administrator Type 3 logons surrounding SimulatedPsExec 7045](../screenshots/q2.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/05_Lateral_Movement/Screenshots/q2.png" width=100% />
+</p>
 
 ### What This Shows
 
@@ -82,7 +86,9 @@ index=wineventlog host="DC01"
 | table _time EventCode Logon_Account_Name Logon_Type Service_Name Service_File_Name
 ```
 
-![Splunk correlation query showing 61 events with attack chain visible on page 2](../screenshots/q3.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/04_Incident_Case_Studies/05_Lateral_Movement/Screenshots/q3.png" width=100% />
+</p>
 
 ### What Each Line Does
 
