@@ -32,11 +32,17 @@ Analyst Inbox
 The analytics rule is the detection layer — it queries the SecurityEvent table for
 Event ID 4725 (user account disabled) and fires an alert when a match is found.
 
-![Sentinel Analytics home showing AD Account Disabled rule — Medium severity, Enabled, MITRE T1531](screenshots/analytics_home.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/analytics_home.png" 
+    width=100% />
+</p>
 
 ### Rule Configuration
 
-![Analytics rule detail showing KQL query, 5-minute frequency, and MITRE T1531 mapping](screenshots/analytics_rule.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/analytics_rule.png" 
+    width=50% />
+</p>
 
 | Field | Value |
 |-------|-------|
@@ -74,7 +80,10 @@ type from a defensive IR perspective — an analyst disabling a compromised acco
 Before a playbook can be run by Sentinel, the SOC-Lab resource group must be granted
 permissions for Sentinel to invoke Logic Apps within it.
 
-![Sentinel Manage Permissions page showing SOC-Lab_RG granted permission](screenshots/permissions.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/permissions.png" 
+    width=90% />
+</p>
 
 SOC-Lab_RG is listed under Current Permissions — Sentinel has been authorised to run
 playbooks contained in this resource group. Without this configuration, the automation
@@ -85,11 +94,17 @@ rule would fail silently when attempting to trigger the playbook.
 The automation rule is the bridge between the analytics rule and the playbook. It listens
 for alerts created by a specific analytics rule and defines what action to take.
 
-![Sentinel Automation home showing 1 automation rule, 1 enabled rule, 1 enabled playbook](screenshots/automation_home.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/automation_home.png" 
+    width=100% />
+</p>
 
 ### Automation Rule Configuration
 
-![Automation rule edit screen showing trigger, condition scoped to AD Account Disabled, and Run playbook action](screenshots/playbook_in_rule.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/playbook_in_rule.png" 
+    width=70% />
+</p>
 
 | Field | Value |
 |-------|-------|
@@ -113,8 +128,10 @@ and response workflow.
 The playbook is also visible directly in the analytics rule's Automated response tab,
 confirming the connection from both directions:
 
-![Analytics rule wizard Automated response tab showing Notify on Account Disable rule attached](screenshots/rule_wizard.png)
-
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/rule_wizard.png" 
+    width=100% />
+</p>
 
 ## Component 4 — Logic App Playbook: sentinel-alert-notifier
 
@@ -122,7 +139,10 @@ The playbook is a Stateful Azure Logic App with one trigger and one action.
 
 ### Playbook Overview
 
-![Logic App overview showing sentinel-alert-notifier — Enabled, 1 trigger, 1 action, West US](screenshots/playbook_overview.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/playbook_overview.png" 
+    width=100% />
+</p>
 
 | Field | Value |
 |-------|-------|
@@ -136,7 +156,10 @@ The playbook is a Stateful Azure Logic App with one trigger and one action.
 
 ### Playbook Flow (Designer View)
 
-![Logic App designer showing Microsoft Sentinel alert trigger connected to Send email (V2) action](screenshots/playbook_flow.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/playbook_flow.png" 
+    width=30% />
+</p>
 
 The playbook consists of two steps:
 
@@ -159,11 +182,17 @@ The playbook was triggered manually from the Logic App overview page to validate
 end-to-end flow. In production, this trigger fires automatically whenever the automation
 rule conditions are met.
 
-![Toast notification confirming successful manual trigger of sentinel-alert-notifier](screenshots/manual_trigger.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/manual_trigger.png" 
+    width=40% />
+</p>
 
 ### Execution Result
 
-![Logic App run view showing Step 1 (Sentinel alert, 0s) and Step 2 (Send email, 0.4s) both Succeeded](screenshots/flow_success.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/flow_success.png" 
+    width=30% />
+</p>
 
 | Step | Action | Duration | Status |
 |------|--------|----------|--------|
@@ -174,7 +203,10 @@ Total execution time: 1.43 seconds from trigger to email delivery.
 
 ### Run History
 
-![Logic App Run History showing one completed run — Succeeded, 1.43 seconds, March 15 2:28 AM](screenshots/runs_history.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/runs_history.png" 
+    width=100% />
+</p>
 
 | Field | Value |
 |-------|-------|
@@ -184,7 +216,10 @@ Total execution time: 1.43 seconds from trigger to email delivery.
 
 ### Email Received
 
-![Gmail showing received Sentinel alert email with blank subject dynamic fields](screenshots/email.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/sentinel_playbook/email.png" 
+    width=90% />
+</p>
 
 The email arrived at 2:28 AM, matching the Logic App run timestamp exactly. The Subject
 line shows "Sentinel Alert:" with blank dynamic fields for alert name, severity, and
