@@ -45,7 +45,10 @@ Disable-ADAccount -Identity "jdoe"
 Get-ADUser -Identity "jdoe" | Select Name, Enabled
 ```
 
-![PowerShell on DC01 showing Disable-ADAccount with no error and Get-ADUser confirming Enabled: False](screenshots/disabled_powershell.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/disable_account/disabled_powershell.png" 
+    width=70% />
+</p>
 
 The command completed with no output — in PowerShell, silence means success. The
 `Get-ADUser` verification confirms the change took effect immediately:
@@ -66,7 +69,10 @@ renewal), and new logon attempts will be rejected with error code 0xC0000072
 ADUC provides a visual confirmation of the disabled state. A disabled account displays
 a downward arrow overlay on the user icon — immediately distinguishable from active accounts.
 
-![ADUC Corps-Users OU showing John Doe with disabled icon and Alice Smith with normal icon](screenshots/disabled_aduc.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/disable_account/disabled_aduc.png" 
+    width=90% />
+</p>
 
 John Doe's account icon shows the downward arrow overlay — confirming the disable is
 reflected in the directory. Alice Smith's account is unaffected.
@@ -128,7 +134,10 @@ Enable-ADAccount -Identity "jdoe"
 Get-ADUser -Identity "jdoe" | Select Name, Enabled
 ```
 
-![PowerShell on DC01 showing Enable-ADAccount and Get-ADUser confirming Enabled: True](screenshots/enable_jdoe.png)
+<p align="center">
+  <img src="https://github.com/SanaMochi/SOC-Home-Lab/blob/main/05_Incident_Response_Actions/Screenshots/disable_account/enable_jdoe.png" 
+    width=70% />
+</p>
 
 | Field | Value |
 |-------|-------|
